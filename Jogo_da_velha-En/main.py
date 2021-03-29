@@ -14,47 +14,46 @@ from random import randint, choice
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        # Esta variável serve para os jogos contra o computador.
+        # This variable serves for the games against the computer.
         self.vs = False
-        # Esta variável marcar o fim do jogo.
+        # This variable maks the end of the game.
         self.game_finish = False
-        # Esta variável serve para o computador saber que símbolo o usuário tem X ou O.
-        # Esta variável só é importante para os jogos contra o computador e ela é invariável 
-        # durante o jogo.
+        # This variable serves the computer to know which symbol the user has X or O.
+        # This variable is only important for games against the computer and it is invariant during the game.
         self.gamer = 2
-        # Esta variável serve para o computador saber que simbolo o usuário tem X ou O.
-        # e ela poder mudar durante o jogo.
-        self.numero = 2
-        # Esta variável serve para guardar as CSS de estado dos botões, que podem ter um X ou O...
+        # This variable serves the computer to know which symbol the user has X or O
+        # and it can change during the game.
+        self.number = 2
+        # This variable serves to save the status CSS of the buttons, which may have an X or O.
         self.estado = ["QPushButton{\n"
-        "background-color: rgb(255, 255, 255);\n"
-        "border-radius: 10px;\n"
-        "background-image: url(:/image/x1.png);\n"
-        "background-position: center;\n"
-        "background-repeat: None\n"
-        "}\n"
-        "QPushButton:hover{\n"
-        "border: 4px solid rgb(255, 249, 75)\n"
-        "}\n"
-        "QPushButton:pressed {    \n"
-        "    background-color: rgb(255, 249, 75);\n"
-        "    border: 2px solid rgb(255, 249, 75);    \n"
-        "}",
-        "QPushButton{\n"
-        "background-image: url(:/image/o2.png);\n"
-        "background-repeat: None;\n"
-        "background-position: center;\n"
-        "background-color: rgb(69, 84, 79);\n"
-        "border-radius: 10px\n"
-        "}\n"
-        "QPushButton:hover{\n"
-        "border: 4px solid rgb(255, 249, 75)\n"
-        "}\n"
-        "QPushButton:pressed {    \n"
-        "    background-color: rgb(255, 249, 75);\n"
-        "    border: 2px solid rgb(255, 249, 75);    \n"
-        "}",
-        """QPushButton{\n
+                       "background-color: rgb(255, 255, 255);\n"
+                       "border-radius: 10px;\n"
+                       "background-image: url(:/image/x1.png);\n"
+                       "background-position: center;\n"
+                       "background-repeat: None\n"
+                       "}\n"
+                       "QPushButton:hover{\n"
+                       "border: 4px solid rgb(255, 249, 75)\n"
+                       "}\n"
+                       "QPushButton:pressed {    \n"
+                       "    background-color: rgb(255, 249, 75);\n"
+                       "    border: 2px solid rgb(255, 249, 75);    \n"
+                       "}",
+                       "QPushButton{\n"
+                       "background-image: url(:/image/o2.png);\n"
+                       "background-repeat: None;\n"
+                       "background-position: center;\n"
+                       "background-color: rgb(69, 84, 79);\n"
+                       "border-radius: 10px\n"
+                       "}\n"
+                       "QPushButton:hover{\n"
+                       "border: 4px solid rgb(255, 249, 75)\n"
+                       "}\n"
+                       "QPushButton:pressed {    \n"
+                       "    background-color: rgb(255, 249, 75);\n"
+                       "    border: 2px solid rgb(255, 249, 75);    \n"
+                       "}",
+                       """QPushButton{\n
         background-color: rgb(250, 250, 0);\n
         border-radius: 10px\n
         }\n
@@ -65,40 +64,40 @@ class Ui_MainWindow(object):
             background-color: rgb(255, 249, 75);\n
             border: 2px solid rgb(255, 249, 75);    \n
         }""",
-        "QPushButton{\n"
-        "color: rgb(255, 255, 255);\n"
-        "font: italic 23pt \"Times New Roman\";\n"
-        "background-color: rgb(54, 121, 106);\n"
-        "border-radius: 7px;\n"
-        "background-position: center;\n"
-        "background-repeat: None\n"
-        "}\n"
-        "QPushButton:hover{\n"
-        "border: 2px solid rgb(0, 254, 203)\n"
-        "}\n"
-        "QPushButton:pressed {    \n"
-        "    background-color: rgb(0, 254, 203);\n"
-        "    border: 2px solid rgb(0, 254, 203);    \n"
-        "}",
-        "QPushButton{\n"
-        "color: rgb(255, 255, 255);\n"
-        "font: italic 23pt \"Times New Roman\";\n"
-        "background-color: rgb(0, 254, 203);\n"
-        "border-radius: 7px;\n"
-        "}\n"]
-        # Esta variável serve para o computador não dar duas jogadas ao mesmo tempo, quando o usuário jogar contra ele.
-        # E ela vai receber um valor booleano, se for True: o computador podera efectuar uma jogada.
+                       "QPushButton{\n"
+                       "color: rgb(255, 255, 255);\n"
+                       "font: italic 23pt \"Times New Roman\";\n"
+                       "background-color: rgb(54, 121, 106);\n"
+                       "border-radius: 7px;\n"
+                       "background-position: center;\n"
+                       "background-repeat: None\n"
+                       "}\n"
+                       "QPushButton:hover{\n"
+                       "border: 2px solid rgb(0, 254, 203)\n"
+                       "}\n"
+                       "QPushButton:pressed {    \n"
+                       "    background-color: rgb(0, 254, 203);\n"
+                       "    border: 2px solid rgb(0, 254, 203);    \n"
+                       "}",
+                       "QPushButton{\n"
+                       "color: rgb(255, 255, 255);\n"
+                       "font: italic 23pt \"Times New Roman\";\n"
+                       "background-color: rgb(0, 254, 203);\n"
+                       "border-radius: 7px;\n"
+                       "}\n"]
+        # This variable serves so that the computer doesn't play twice at the same time when the user
+        # plays against the computer. It will receive o Boolean value if it is True the computer can play.
         self.goo = None
-        # Esta variável serve para que computador saiba onde estão posicionados os X e os O no jogo.
-        # Nada = 2
+        # This variable is for the computer to know where the X and O are positioned.
+        # Nothing = 2
         # X = 0
         # O = 1
         self.place = [2, 2, 2, 2, 2, 2, 2, 2, 2]
-        # Esta variável sera utilizada para reproduzir sons durante o jogo.
-        self.son = None
-        # criando a janela principal.
+        # This variable will be used to play music during the game.
+        self.sound = None
+        # creating the main window.
         MainWindow.setObjectName("MainWindow")
-        # adicionando um icone.
+        # adding a icon.
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/image/icon3.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -110,7 +109,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame_main = QtWidgets.QFrame(MainWindow)
         self.frame_main.setStyleSheet("background-color: rgb(0, 254, 203);\n"
-        "background-color: qlineargradient(spread:pad, x1:0.565, y1:0.789773, x2:0.458, y2:0, stop:0 rgba(222, 62, 255, 255), stop:1 rgba(0, 254, 203, 255));")
+                                      "background-color: qlineargradient(spread:pad, x1:0.565, y1:0.789773, x2:0.458, y2:0, stop:0 rgba(222, 62, 255, 255), stop:1 rgba(0, 254, 203, 255));")
         self.frame_main.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_main.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_main.setObjectName("frame_main")
@@ -131,19 +130,19 @@ class Ui_MainWindow(object):
         self.restart_button.setMinimumSize(QtCore.QSize(40, 40))
         self.restart_button.setMaximumSize(QtCore.QSize(40, 16777215))
         self.restart_button.setStyleSheet("QPushButton{\n"
-        "background-color: rgb(54, 121, 106);\n"
-        "border-radius: 7px;\n"
-        "    background-image: url(:/image/restart2.png);\n"
-        "background-position: center;\n"
-        "background-repeat: None\n"
-        "}\n"
-        "QPushButton:hover{\n"
-        "border: 2px solid rgb(255, 249, 75)\n"
-        "}\n"
-        "QPushButton:pressed {    \n"
-        "    background-color: rgb(255, 249, 75);\n"
-        "    border: 2px solid rgb(255, 249, 75);    \n"
-        "}")
+                                          "background-color: rgb(54, 121, 106);\n"
+                                          "border-radius: 7px;\n"
+                                          "    background-image: url(:/image/restart2.png);\n"
+                                          "background-position: center;\n"
+                                          "background-repeat: None\n"
+                                          "}\n"
+                                          "QPushButton:hover{\n"
+                                          "border: 2px solid rgb(255, 249, 75)\n"
+                                          "}\n"
+                                          "QPushButton:pressed {    \n"
+                                          "    background-color: rgb(255, 249, 75);\n"
+                                          "    border: 2px solid rgb(255, 249, 75);    \n"
+                                          "}")
         self.restart_button.setText("")
         self.restart_button.setObjectName("restart_button")
         self.restart_button.setToolTip("Novo jogo")
@@ -158,8 +157,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addItem(spacerItem)
         self.label = QtWidgets.QLabel(self.frame_top)
         self.label.setStyleSheet("font: 75 16pt \"Times New Rom\";\n"
-        "font: 22pt \"Times New Roman\";\n"
-        "color: rgb(255, 255, 255);")
+                                 "font: 22pt \"Times New Roman\";\n"
+                                 "color: rgb(255, 255, 255);")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.horizontalLayout_3.addWidget(self.label)
@@ -169,19 +168,19 @@ class Ui_MainWindow(object):
         self.About_button.setMinimumSize(QtCore.QSize(40, 40))
         self.About_button.setMaximumSize(QtCore.QSize(40, 16777215))
         self.About_button.setStyleSheet("QPushButton{\n"
-        "background-color: rgb(54, 121, 106);\n"
-        "border-radius: 7px;\n"
-        "background-image: url(:/image/About.png);\n"
-        "background-position: center;\n"
-        "background-repeat: None\n"
-        "}\n"
-        "QPushButton:hover{\n"
-        "border: 2px solid rgb(250, 0, 168)\n"
-        "}\n"
-        "QPushButton:pressed {    \n"
-        "    background-color: rgb(250, 0, 168);\n"
-        "    border: 2px solid rgb(250, 0, 168);    \n"
-        "}")
+                                        "background-color: rgb(54, 121, 106);\n"
+                                        "border-radius: 7px;\n"
+                                        "background-image: url(:/image/About.png);\n"
+                                        "background-position: center;\n"
+                                        "background-repeat: None\n"
+                                        "}\n"
+                                        "QPushButton:hover{\n"
+                                        "border: 2px solid rgb(250, 0, 168)\n"
+                                        "}\n"
+                                        "QPushButton:pressed {    \n"
+                                        "    background-color: rgb(250, 0, 168);\n"
+                                        "    border: 2px solid rgb(250, 0, 168);    \n"
+                                        "}")
         self.About_button.setText("")
         self.About_button.setObjectName("About_button")
         self.horizontalLayout_3.addWidget(self.About_button)
@@ -197,7 +196,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.frame_board = QtWidgets.QFrame(self.frame_centrale)
         self.frame_board.setStyleSheet("background-color: rgb(69, 84, 79, 200);\n"
-        "border-radius: 50px")
+                                       "border-radius: 50px")
         self.frame_board.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_board.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_board.setObjectName("frame_board")
@@ -269,7 +268,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        # Dando funções a cada click.
+        # Giving functionalities to every click that the user makes.
         self.pushButton_1.clicked.connect(lambda: self.click(key="1"))
         self.pushButton_2.clicked.connect(lambda: self.click(key="2"))
         self.pushButton_3.clicked.connect(lambda: self.click(key="3"))
@@ -281,23 +280,21 @@ class Ui_MainWindow(object):
         self.pushButton_9.clicked.connect(lambda: self.click(key="9"))
         self.restart_button.clicked.connect(lambda: self.click(key="new_game", event="restart"))
         self.vs_button.clicked.connect(lambda: self.click(key="VS", event="restart"))
-        # importando a janela de About.
+        # Importing the window about.
         from about import Ui_MainWindow2
-        # criando a janela About que será uma filha da janela principal.
-        self.AboutWindow = QtWidgets.QMainWindow(parent= MainWindow)
+        # creating the window about which will be daughter of the main window.
+        self.AboutWindow = QtWidgets.QMainWindow(parent=MainWindow)
         self.ui = Ui_MainWindow2()
         self.ui.setupUi(self.AboutWindow)
-        # mostrando a janela About criada logo a cima.
+        # Showing the window about created.
         self.About_button.clicked.connect(lambda: self.AboutWindow.show())
-        
-        
 
-    # função que da funcionalidades para os clickes.
-    def click(self, key: str="", event: str=""):
-        # Pondo som a tocar quando usuário estiver a cliquar nos botões de jogo.
-        if key in ["1","2","3","4","5","6","7","8","9"]:
-            self.son = QtMultimedia.QSound("click.wav")
-            self.son.play()
+    # Function for button clicks.
+    def click(self, key: str = "", event: str = ""):
+        # Putting sound to play when the user is clicking on the buttons.
+        if key in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            self.sound = QtMultimedia.QSound("click.wav")
+            self.sound.play()
         if event == "restart":
             self.pushButton_1.setDisabled(False)
             self.pushButton_1.setStyleSheet(self.estado[2])
@@ -318,185 +315,185 @@ class Ui_MainWindow(object):
             self.pushButton_9.setDisabled(False)
             self.pushButton_9.setStyleSheet(self.estado[2])
 
-            # Essas são as variáveis que controlam o jogo.
+            # These are the variables that control the game.
             self.place = [2, 2, 2, 2, 2, 2, 2, 2, 2]
             self.gamer = 2
-            self.numero = 2
+            self.number = 2
             self.label.setText("")
             self.game_finish = False
 
             if key == "VS":
-                    if self.vs == False:
-                        self.vs_button.setStyleSheet(self.estado[4])
-                        self.vs = True
-                    else:
-                        self.vs_button.setStyleSheet(self.estado[3])
-                        self.vs = False
-                        
-        
-        elif key == "1":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_1.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+                if self.vs == False:
+                    self.vs_button.setStyleSheet(self.estado[4])
+                    self.vs = True
+                else:
+                    self.vs_button.setStyleSheet(self.estado[3])
+                    self.vs = False
 
-            else: 
-                if self.numero == 0:
+
+        elif key == "1":
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_1.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
+
+            else:
+                if self.number == 0:
                     self.pushButton_1.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
 
                 else:
                     self.pushButton_1.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_1.setDisabled(True)
-            self.place[0] = self.numero
+            self.place[0] = self.number
 
         elif key == "2":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_2.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_2.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
 
-            else: 
-                if self.numero == 0:
+            else:
+                if self.number == 0:
                     self.pushButton_2.setStyleSheet(self.estado[1])
-                    self.numero = 1
-                    
+                    self.number = 1
+
                 else:
                     self.pushButton_2.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_2.setDisabled(True)
-            self.place[1] = self.numero
-        
-        elif key == "3":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_3.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            self.place[1] = self.number
 
-            else: 
-                if self.numero == 0:
+        elif key == "3":
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_3.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
+
+            else:
+                if self.number == 0:
                     self.pushButton_3.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
 
                 else:
                     self.pushButton_3.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_3.setDisabled(True)
-            self.place[2] = self.numero
+            self.place[2] = self.number
 
         elif key == "4":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_4.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_4.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
 
-            else: 
-                if self.numero == 0:
+            else:
+                if self.number == 0:
                     self.pushButton_4.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
 
                 else:
                     self.pushButton_4.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_4.setDisabled(True)
-            self.place[3] = self.numero   
+            self.place[3] = self.number
 
         elif key == "5":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_5.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_5.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
 
-            else: 
-                if self.numero == 0:
+            else:
+                if self.number == 0:
                     self.pushButton_5.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
 
                 else:
                     self.pushButton_5.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
-            self.pushButton_5.setDisabled(True) 
-            self.place[4] = self.numero 
+            self.pushButton_5.setDisabled(True)
+            self.place[4] = self.number
 
         elif key == "6":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_6.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_6.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
 
-            else: 
-                if self.numero == 0:
+            else:
+                if self.number == 0:
                     self.pushButton_6.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
 
                 else:
                     self.pushButton_6.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_6.setDisabled(True)
-            self.place[5] = self.numero
+            self.place[5] = self.number
 
         elif key == "7":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_7.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_7.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
 
-            else: 
-                if self.numero == 0:
+            else:
+                if self.number == 0:
                     self.pushButton_7.setStyleSheet(self.estado[1])
-                    self.numero = 1
-                    
+                    self.number = 1
+
                 else:
                     self.pushButton_7.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_7.setDisabled(True)
-            self.place[6] = self.numero
+            self.place[6] = self.number
 
         elif key == "8":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_8.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_8.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
 
-            else: 
-                if self.numero == 0:
+            else:
+                if self.number == 0:
                     self.pushButton_8.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
 
                 else:
                     self.pushButton_8.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
-            self.pushButton_8.setDisabled(True)  
-            self.place[7] = self.numero
+            self.pushButton_8.setDisabled(True)
+            self.place[7] = self.number
 
         elif key == "9":
-            if self.numero == 2:
-                self.numero = randint(0, 1)
-                self.pushButton_9.setStyleSheet(self.estado[self.numero])
-                self.gamer = self.numero
-                
-            else: 
-                if self.numero == 0:
+            if self.number == 2:
+                self.number = randint(0, 1)
+                self.pushButton_9.setStyleSheet(self.estado[self.number])
+                self.gamer = self.number
+
+            else:
+                if self.number == 0:
                     self.pushButton_9.setStyleSheet(self.estado[1])
-                    self.numero = 1
+                    self.number = 1
                 else:
                     self.pushButton_9.setStyleSheet(self.estado[0])
-                    self.numero = 0
+                    self.number = 0
 
             self.pushButton_9.setDisabled(True)
-            self.place[8] = self.numero
+            self.place[8] = self.number
 
         self.verification()
-        
+
         if self.vs == True:
             self.goo = True
             lista = []
@@ -513,7 +510,7 @@ class Ui_MainWindow(object):
                                 self.case1(num=1)
                             elif 2 != self.place[3] == self.place[6] == 1 and self.place[0] == 2:
                                 self.case1(num=1)
-                    
+
                         if self.place[1] == 2 and self.goo == True:
                             if 2 != self.place[0] == self.place[2] == 1 and self.place[1] == 2:
                                 self.case2(num=1)
@@ -527,13 +524,13 @@ class Ui_MainWindow(object):
                                 self.case3(num=1)
                             elif 2 != self.place[5] == self.place[8] == 1 and self.place[2] == 2:
                                 self.case3(num=1)
-                        
+
                         if self.place[3] == 2 and self.goo == True:
                             if 2 != self.place[4] == self.place[5] == 1 and self.place[3] == 2:
                                 self.case4(num=1)
                             elif 2 != self.place[0] == self.place[6] == 1 and self.place[5] == 2:
                                 self.case4(num=1)
-                        
+
                         if self.place[4] == 2 and self.goo == True:
                             if 2 != self.place[3] == self.place[5] == 1 and self.place[4] == 2:
                                 self.case5(num=1)
@@ -549,7 +546,7 @@ class Ui_MainWindow(object):
                                 self.case6(num=1)
                             elif 2 != self.place[2] == self.place[8] == 1 and self.place[5] == 2:
                                 self.case6(num=1)
-                        
+
                         if self.place[6] == 2 and self.goo == True:
                             if 2 != self.place[4] == self.place[2] == 1 and self.place[6] == 2:
                                 self.case7(num=1)
@@ -557,13 +554,13 @@ class Ui_MainWindow(object):
                                 self.case7(num=1)
                             elif 2 != self.place[7] == self.place[8] == 1 and self.place[6] == 2:
                                 self.case7(num=1)
-                        
+
                         if self.place[7] == 2:
                             if 2 != self.place[4] == self.place[1] == 1 and self.place[7] == 2:
                                 self.case8(num=1)
                             elif 2 != self.place[6] == self.place[8] == 1 and self.place[7] == 2:
                                 self.case8(num=1)
-                        
+
                         if self.place[8] == 2 and self.goo == True:
                             if 2 != self.place[5] == self.place[2] == 1 and self.place[8] == 2:
                                 self.case9(num=1)
@@ -579,7 +576,7 @@ class Ui_MainWindow(object):
                             self.case1(num=1)
                         elif 2 != self.place[3] == self.place[6] != 1 and self.place[0] == 2:
                             self.case1(num=1)
-                    
+
                     if self.place[1] == 2 and self.goo == True:
                         if 2 != self.place[0] == self.place[2] != 1 and self.place[1] == 2:
                             self.case2(num=1)
@@ -593,13 +590,13 @@ class Ui_MainWindow(object):
                             self.case3(num=1)
                         elif 2 != self.place[5] == self.place[8] != 1 and self.place[2] == 2:
                             self.case3(num=1)
-                    
+
                     if self.place[3] == 2 and self.goo == True:
                         if 2 != self.place[4] == self.place[5] != 1 and self.place[3] == 2:
                             self.case4(num=1)
                         if 2 != self.place[0] == self.place[6] != 1 and self.place[5] == 2:
                             self.case4(num=1)
-                    
+
                     if self.place[4] == 2 and self.goo == True:
                         if 2 != self.place[3] == self.place[5] != 1 and self.place[4] == 2:
                             self.case5(num=1)
@@ -615,7 +612,7 @@ class Ui_MainWindow(object):
                             self.case6(num=1)
                         elif 2 != self.place[2] == self.place[8] != 1 and self.place[5] == 2:
                             self.case6(num=1)
-                    
+
                     if self.place[6] == 2 and self.goo == True:
                         if 2 != self.place[4] == self.place[2] != 1 and self.place[6] == 2:
                             self.case7(num=1)
@@ -623,13 +620,13 @@ class Ui_MainWindow(object):
                             self.case7(num=1)
                         elif 2 != self.place[7] == self.place[8] != 1 and self.place[6] == 2:
                             self.case7(num=1)
-                    
+
                     if self.place[7] == 2 and self.goo == True:
                         if 2 != self.place[4] == self.place[1] != 1 and self.place[7] == 2:
                             self.case8(num=1)
                         elif 2 != self.place[6] == self.place[8] != 1 and self.place[7] == 2:
                             self.case8(num=1)
-                    
+
                     if self.place[8] == 2 and self.goo == True:
                         if 2 != self.place[5] == self.place[2] != 1 and self.place[8] == 2:
                             self.case9(num=1)
@@ -666,7 +663,7 @@ class Ui_MainWindow(object):
                             self.case9(num=1)
                         else:
                             pass
-                        
+
 
                 elif self.gamer == 1 and len(lista) > 1:
                     if self.goo == True and len(lista) > 1:
@@ -707,13 +704,13 @@ class Ui_MainWindow(object):
                                 self.case5(num=0)
                             elif 2 != self.place[2] == self.place[6] == 0 and self.place[4] == 2:
                                 self.case5(num=0)
-                        
+
                         if self.place[5] == 2 and self.goo == True:
                             if 2 != self.place[3] == self.place[4] == 0 and self.place[5] == 2:
                                 self.case6(num=0)
                             elif 2 != self.place[2] == self.place[8] == 0 and self.place[5] == 2:
                                 self.case6(num=0)
-                        
+
                         if self.place[6] == 2 and self.goo == True:
                             if 2 != self.place[4] == self.place[2] == 0 and self.place[6] == 2:
                                 self.case7(num=0)
@@ -721,13 +718,13 @@ class Ui_MainWindow(object):
                                 self.case7(num=0)
                             elif 2 != self.place[7] == self.place[8] == 0 and self.place[6] == 2:
                                 self.case7(num=0)
-                        
+
                         if self.place[7] == 2 and self.goo == True:
                             if 2 != self.place[4] == self.place[1] == 0 and self.place[7] == 2:
                                 self.case8(num=0)
                             elif 2 != self.place[6] == self.place[8] == 0 and self.place[7] == 2:
                                 self.case8(num=0)
-                        
+
                         if self.place[8] == 2 and self.goo == True:
                             if 2 != self.place[5] == self.place[2] == 0 and self.place[8] == 2:
                                 self.case9(num=0)
@@ -760,14 +757,13 @@ class Ui_MainWindow(object):
                             self.case3(num=0)
                         elif 2 != self.place[5] == self.place[8] != 0 and self.place[2] == 2:
                             self.case3(num=0)
-                    
+
                     if self.place[3] == 2 and self.goo == True:
                         if 2 != self.place[4] == self.place[5] != 0 and self.place[3] == 2:
                             self.case4(num=0)
                         elif 2 != self.place[0] == self.place[6] != 0 and self.place[5] == 2:
                             self.case4(num=0)
 
-                    
                     if self.place[4] == 2 and self.goo == True:
                         if 2 != self.place[3] == self.place[5] != 0 and self.place[4] == 2:
                             self.case5(num=0)
@@ -783,7 +779,7 @@ class Ui_MainWindow(object):
                             self.case6(num=0)
                         elif 2 != self.place[2] == self.place[8] != 0 and self.place[5] == 2:
                             self.case6(num=0)
-                    
+
                     if self.place[6] == 2 and self.goo == True:
                         if 2 != self.place[4] == self.place[2] != 0 and self.place[6] == 2:
                             self.case7(num=0)
@@ -791,13 +787,13 @@ class Ui_MainWindow(object):
                             self.case7(num=0)
                         elif 2 != self.place[7] == self.place[8] != 0 and self.place[6] == 2:
                             self.case7(num=0)
-                    
+
                     if self.place[7] == 2 and self.goo == True:
                         if 2 != self.place[4] == self.place[1] != 0 and self.place[7] == 2:
                             self.case8(num=0)
                         elif 2 != self.place[6] == self.place[8] != 0 and self.place[7] == 2:
                             self.case8(num=0)
-                    
+
                     if self.place[8] == 2 and self.goo == True:
                         if 2 != self.place[5] == self.place[2] != 0 and self.place[8] == 2:
                             self.case9(num=0)
@@ -834,111 +830,112 @@ class Ui_MainWindow(object):
                         else:
                             pass
 
-            # Esta funcão serve para verificar se o computador ganho ou não.    
+            # This function is to check whether the computer won or not won the game.   
             self.verification()
 
         else:
             pass
-    
-    # As case representam cada botão do jogo e ajudam o computador a posiçionar os X e O,
-    # quando o usuário joga contra ele.
-    def case1(self, num:int=2):
+
+    # The cases represent all buttons in the game and helps the computer to position the X or the O
+    # when the user plays against the computer.
+    def case1(self, num: int = 2):
         self.place[0] = num
         self.pushButton_1.setStyleSheet(self.estado[num])
         self.pushButton_1.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
 
-    def case2(self, num: int=2):
+    def case2(self, num: int = 2):
         self.place[1] = num
         self.pushButton_2.setStyleSheet(self.estado[num])
         self.pushButton_2.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
-    
-    def case3(self, num: int=2):
+
+    def case3(self, num: int = 2):
         self.place[2] = num
         self.pushButton_3.setStyleSheet(self.estado[num])
         self.pushButton_3.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
-    
-    def case4(self, num: int=2):
+
+    def case4(self, num: int = 2):
         self.place[3] = num
         self.pushButton_4.setStyleSheet(self.estado[num])
         self.pushButton_4.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
-    
-    def case5(self, num: int=2):
+
+    def case5(self, num: int = 2):
         self.place[4] = num
         self.pushButton_5.setStyleSheet(self.estado[num])
         self.pushButton_5.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
 
-    def case6(self, num: int=2):
+    def case6(self, num: int = 2):
         self.place[5] = num
         self.pushButton_6.setStyleSheet(self.estado[num])
         self.pushButton_6.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
-    
-    def case7(self, num: int=2):
+
+    def case7(self, num: int = 2):
         self.place[6] = num
         self.pushButton_7.setStyleSheet(self.estado[num])
         self.pushButton_7.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
 
-    def case8(self, num: int=2):
+    def case8(self, num: int = 2):
         self.place[7] = num
         self.pushButton_8.setStyleSheet(self.estado[num])
         self.pushButton_8.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
 
-    def case9(self, num: int=2):
+    def case9(self, num: int = 2):
         self.place[8] = num
         self.pushButton_9.setStyleSheet(self.estado[num])
         self.pushButton_9.setDisabled(True)
-        self.numero = num
+        self.number = num
         self.goo = False
-    
-    # Esta funcão serve para verificar quem ganho, o X ou O.
+
+    # This function is to verify who won, X or O.
     def verification(self):
         if self.place[0] == self.place[1] and self.place[1] == self.place[2] != 2:
-            self.message(num = self.place[0])
+            self.message(num=self.place[0])
             self.game_over()
-                
-        elif self.place[3] == self.place[4] and self.place[4] == self.place[5]!= 2:
-            self.message(num = self.place[3])
+
+        elif self.place[3] == self.place[4] and self.place[4] == self.place[5] != 2:
+            self.message(num=self.place[3])
             self.game_over()
 
         elif self.place[6] == self.place[7] and self.place[7] == self.place[8] != 2:
-            self.message(num = self.place[6])
+            self.message(num=self.place[6])
             self.game_over()
 
         elif self.place[0] == self.place[4] and self.place[4] == self.place[8] != 2:
-            self.message(num = self.place[0])
+            self.message(num=self.place[0])
             self.game_over()
 
         elif self.place[2] == self.place[4] and self.place[4] == self.place[6] != 2:
-            self.message(num = self.place[2])
+            self.message(num=self.place[2])
             self.game_over()
 
         elif self.place[0] == self.place[3] and self.place[3] == self.place[6] != 2:
-            self.message(num = self.place[0])
+            self.message(num=self.place[0])
             self.game_over()
 
         elif self.place[1] == self.place[4] and self.place[4] == self.place[7] != 2:
-            self.message(num = self.place[1])
+            self.message(num=self.place[1])
             self.game_over()
 
         elif self.place[2] == self.place[5] and self.place[5] == self.place[8] != 2:
-            self.message(num = self.place[2])
+            self.message(num=self.place[2])
             self.game_over()
-    # Esta função serve para marcar o Fim da partida, desabilitando os botões do jogo!
+
+    # This function serves to mark the end of the game by disabling the game buttons.
     def game_over(self):
         self.game_finish = True
         self.pushButton_1.setDisabled(True)
@@ -950,27 +947,31 @@ class Ui_MainWindow(object):
         self.pushButton_7.setDisabled(True)
         self.pushButton_8.setDisabled(True)
         self.pushButton_9.setDisabled(True)
-        self.son = QtMultimedia.QSound("gameover.wav")
-        self.son.play()
-    # Esta funcão serve para mostrar uma mensagem de victoria para o X ou O.
-    def message(self, num:int = 2):
-                if  num == 1:
-                        self.label.setText("<html><head/><body><p><span style=\" font-size:28pt; font-style:italic; color:#fa00a8;\">O</span><span style=\" font-size:28pt; font-style:italic;\"> vence a partida!</span></p></body></html>")
-                else:
-                        self.label.setText("<html><head/><body><p><span style=\" font-size:28pt; font-style:italic; color:#fa00a8;\">X</span><span style=\" font-size:28pt; font-style:italic;\"> vence a partida!</span></p></body></html>")
+        self.sound = QtMultimedia.QSound("gameover.wav")
+        self.sound.play()
 
+    # This function serve to show a message from win to X or O.
+    def message(self, num: int = 2):
+        if num == 1:
+            self.label.setText(
+                "<html><head/><body><p><span style=\" font-size:28pt; font-style:italic; color:#fa00a8;\">O</span><span style=\" font-size:28pt; font-style:italic;\"> wins the match!</span></p></body></html>")
+        else:
+            self.label.setText(
+                "<html><head/><body><p><span style=\" font-size:28pt; font-style:italic; color:#fa00a8;\">X</span><span style=\" font-size:28pt; font-style:italic;\"> wins the match!</span></p></body></html>")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Jogo da velha"))
-        self.vs_button.setToolTip(_translate("MainWindow", "<html><head/><body><p>Joge contra o computador</p></body></html>"))
+        self.vs_button.setToolTip(
+            _translate("MainWindow", "<html><head/><body><p>Joge contra o computador</p></body></html>"))
         self.vs_button.setText(_translate("MainWindow", "VS"))
-        
-import rec
 
+
+import rec
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QWidget()
     ui = Ui_MainWindow()
